@@ -87,11 +87,11 @@ async def web_ss_capture(event):
             )
             await xx.delete()
         except PhotoInvalidDimensionsError:
-            await xx.edit("Sorry. I cannot send that file :(")
-            try:
-                remove("webss_bh.jpg")
-            except:
-                pass
+            await event.reply(
+                "**ScreenShot generated.**\n\n~ @BotzHub", file="webss_bh.jpg",
+                force_document=True
+            )
+            await xx.delete()
 
         try:
             remove("webss_bh.jpg")
